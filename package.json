@@ -1,0 +1,19 @@
+{
+  "name": "neha-dhaval-wedding",
+  "description": "Neha & Dhaval Wedding Invitation Website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhavalnehaaa-ctrl/neval.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
