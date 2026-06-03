@@ -654,6 +654,9 @@ textarea {
 .ev-timeline {
   position: relative;
   padding-right: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .ev-timeline-line {
@@ -859,6 +862,21 @@ textarea {
   box-shadow: 0 6px 20px rgba(201, 168, 76, 0.5);
 }
 
+.venue-date-title {
+  font-family: var(--ff-formal);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.venue-ceremony-type {
+  font-family: var(--ff-script);
+  font-size: 2.2rem;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
 /* ============================================================
    OUR STORY
    ============================================================ */
@@ -872,6 +890,9 @@ textarea {
 .story-card {
   margin-bottom: 60px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .story-card:last-child {
@@ -1240,62 +1261,74 @@ textarea {
 }
 
 .footer-logo-wrap {
-  margin-bottom: 20px;
+  margin-bottom: 32px;
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-logo {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
-  object-fit: contain;
-  filter: invert(1) brightness(2) sepia(1) saturate(3) hue-rotate(10deg);
-  opacity: 0.7;
+  width: 80px;
+  height: 80px;
+  margin: 0 -8px;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 1;
+  border: 3px solid rgba(201, 168, 76, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .footer-names {
   font-family: var(--ff-script);
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: var(--gold);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  font-weight: 600;
 }
 
 .footer-tag {
   font-family: var(--ff-body);
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--gold);
-  opacity: 0.6;
-  letter-spacing: 1px;
-  margin-bottom: 6px;
+  opacity: 0.8;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  font-weight: 500;
 }
 
 .footer-date-line {
   font-family: var(--ff-formal);
-  font-size: 0.75rem;
-  letter-spacing: 3px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
   color: var(--text-on-dark);
-  opacity: 0.4;
-  margin-bottom: 20px;
+  opacity: 0.7;
+  margin-bottom: 28px;
+  font-weight: 500;
 }
 
 .footer-hearts {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 12px;
   justify-content: center;
+  align-items: center;
   color: var(--gold);
-  font-size: 0.8rem;
-  margin-bottom: 16px;
+  font-size: 1.4rem;
+  margin-bottom: 24px;
 }
 
 .footer-hearts span:nth-child(2) {
-  font-size: 1rem;
+  font-size: 1.8rem;
   animation: heartBeat 1.5s ease-in-out infinite;
 }
 
 .footer-credit {
   font-family: var(--ff-body);
-  font-size: 0.8rem;
-  color: var(--text-on-dark);
-  opacity: 0.3;
+  font-size: 0.9rem;
+  color: var(--gold);
+  opacity: 0.6;
+  letter-spacing: 0.5px;
 }
 
 /* ============================================================

@@ -230,27 +230,24 @@ function initRSVP() {
     btnLoader.classList.remove('hidden');
 
     try {
-      // Send data to the provided email using FormSubmit
-      const response = await fetch("https://formsubmit.co/ajax/dhavalnehaaa@gmail.com", {
+      // Send data using FormSubmit.co
+      const formBody = new FormData();
+      formBody.append('Name', formData.name);
+      formBody.append('Will Attend', formData.attend === 'yes' ? 'Yes' : formData.attend === 'no' ? 'No' : 'Not specified');
+      formBody.append('Attending Events', formData.events || 'Not specified');
+      formBody.append('Number of Guests', formData.guests);
+      formBody.append('Contact Info', formData.contact || 'Not provided');
+      formBody.append('Wishes for Couple', formData.wishes || 'No wishes');
+      formBody.append('_subject', 'RSVP from ' + formData.name + ' - Neha & Dhaval Wedding');
+      formBody.append('_captcha', 'false');
+
+      const response = await fetch("https://formsubmit.co/dhavalnehaaa@gmail.com", {
         method: "POST",
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          Name: formData.name,
-          "Will Attend": formData.attend === 'yes' ? 'Yes' : formData.attend === 'no' ? 'No' : 'Not specified',
-          "Attending Events": formData.events || 'Not specified',
-          "Number of Guests": formData.guests,
-          "Contact Info": formData.contact || 'Not provided',
-          "Wishes for Couple": formData.wishes || 'No wishes',
-          _subject: "RSVP from " + formData.name + " - Neha & Dhaval Wedding",
-          _template: "table" // Formats the email nicely
-        })
+        body: formBody
       });
 
       if (!response.ok) {
-        throw new Error("Failed to send email");
+        throw new Error("Email service returned status " + response.status);
       }
 
       // Show success
@@ -263,7 +260,7 @@ function initRSVP() {
       }
     } catch (err) {
       console.error('RSVP submission error:', err);
-      alert('Something went wrong. Please try again.');
+      alert('Something went wrong. Please try again. Error: ' + err.message);
       submitBtn.disabled = false;
       btnLabel.classList.remove('hidden');
       btnLoader.classList.add('hidden');
