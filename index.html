@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Neha ❤ Dhaval | Wedding Invitation</title>
+  <title>Dhaval ❤ Neha | Wedding Invitation</title>
   <meta name="description" content="You are cordially invited to celebrate the wedding of Neha de Redekar & Dhaval Patel. June 29, 2026.">
-  <link rel="icon" type="image/png" href="/images/oooo.png">
+  <link rel="icon" type="image/png" href="/images/logo.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,10 +35,17 @@
     <div class="landing-content">
       <div class="invitation-card">
         <div class="card-inner">
+          <div class="landing-logo-wrap">
+            <img src="/images/logo.png" alt="Neha & Dhaval Logo" class="landing-logo">
+          </div>
           <p class="you-are-invited">You Are Invited</p>
           <h1 class="couple-names-landing">
             Neha <span class="amp">&amp;</span><br>Dhaval
           </h1>
+          <div class="landing-details">
+            <p class="landing-date">JUNE 29, 2026</p>
+            <p class="landing-venue">ENON RANCH, ATLANTA, GEORGIA</p>
+          </div>
           <button id="open-invitation-btn" class="open-btn">
             OPEN<br>INVITATION
           </button>
@@ -55,13 +62,13 @@
     <section id="invitation" class="section dark-section">
       <div class="section-inner">
         <div class="logo-wrap">
-          <img src="/images/oooo.png" alt="SK" class="wedding-logo" id="main-logo">
+          <img src="/images/logo.png" alt="Neha & Dhaval" class="wedding-logo" id="main-logo">
         </div>
         <p class="families-label">Together with our FAMILIES</p>
         <h2 class="couple-script">
-          <span>Neha</span>
-          <span class="script-amp">&amp;</span>
           <span>Dhaval</span>
+          <span class="script-amp">&amp;</span>
+          <span>Neha</span>
         </h2>
         <p class="invite-line">Invite you to join us in the celebration<br>of our love</p>
         <div class="ornament-divider">
@@ -164,6 +171,18 @@
         <h2 class="section-heading dark-text">Our Story</h2>
         <div class="gold-bar"></div>
 
+         <!-- Groom (Dhaval) -->
+        <div class="story-card reveal">
+          <div class="photo-ring">
+            <div class="photo-ring-border"></div>
+            <img src="/images/d .jpeg" alt="Dhaval Patel" class="story-photo" id="groom-photo">
+            <div class="photo-placeholder">D</div>
+          </div>
+          <h3 class="story-name">Dhaval</h3>
+          <p class="story-description"><strong>Dhaval Patel</strong><br>Son of Vijay Patel & Nita Patel</p>
+          <div class="heart-float">❤</div>
+        </div>
+
         <!-- Bride (Neha) -->
         <div class="story-card reveal">
           <div class="photo-ring">
@@ -173,18 +192,6 @@
           </div>
           <h3 class="story-name">Neha</h3>
           <p class="story-description"><strong>Neha de Redekar</strong><br>Daughter of Ashatai Redekar & Dattatray Redekar</p>
-          <div class="heart-float">❤</div>
-        </div>
-
-        <!-- Groom (Dhaval) -->
-        <div class="story-card reveal">
-          <div class="photo-ring">
-            <div class="photo-ring-border"></div>
-            <img src="/images/d .jpeg" alt="Dhaval Patel" class="story-photo" id="groom-photo">
-            <div class="photo-placeholder">D</div>
-          </div>
-          <h3 class="story-name">Dhaval</h3>
-          <p class="story-description"><strong>Dhaval Patel</strong><br>Son of Vijay Patel & Nita Patel</p>
           <div class="heart-float">❤</div>
         </div>
       </div>
@@ -300,7 +307,7 @@
         <div class="gold-bar"></div>
         <div class="notes-card reveal">
           <ul class="notes-list">
-            <li>Please carry your umbrella</li>
+            <li>Please carry your umbrella & sun glasses due to whether conditions</li>
             <li>Please don't wear high pencil cut heels at the marriage venue as it is an open venue with garden</li>
           </ul>
           <p class="notes-footer">We will provide further details via email. Stay tuned!</p>
@@ -333,13 +340,7 @@
           <div class="field">
             <select id="f-events" name="events" required>
               <option value="">-- Which events will you attend? --</option>
-              <option value="ceremony">Mehendi</option>
-              <option value="reception">Haldi</option>
               <option value="reception">Marriage</option>
-              <option value="both">Both Mehendi & Haldi</option>
-              <option value="both">Both Mehendi & Marriage</option>
-              <option value="both">Both Haldi & Marriage</option>
-              <option value="both">Both Haldi & Marriage & Mehendi</option>
             </select>
           </div>
 

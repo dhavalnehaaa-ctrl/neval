@@ -230,12 +230,47 @@ function initRSVP() {
     btnLoader.classList.remove('hidden');
 
     try {
+      const isAttending = formData.attend === 'yes';
+      const guestCount = isAttending ? parseInt(formData.guests, 10) || 0 : 0;
+
+      // 1. Fetch current cumulative guest count from immanuel.co KV store
+      let currentTotal = 0;
+      try {
+        const getValResponse = await fetch("https://keyvalue.immanuel.co/api/KeyVal/GetValue/s05xpdx9/total_guests");
+        if (getValResponse.ok) {
+          let textVal = await getValResponse.text();
+          // Remove potential leading/trailing double quotes
+          textVal = textVal.replace(/^"|"$/g, '');
+          currentTotal = parseInt(textVal, 10) || 0;
+        }
+      } catch (err) {
+        console.error('Failed to retrieve cumulative guest count:', err);
+      }
+
+      const newTotal = currentTotal + guestCount;
+
+      // 2. Save updated cumulative count back to KV store
+      if (guestCount > 0) {
+        try {
+          await fetch(`https://keyvalue.immanuel.co/api/KeyVal/UpdateValue/s05xpdx9/total_guests/${newTotal}`, {
+            method: "POST",
+            headers: {
+              "Content-Length": "0"
+            },
+            body: ""
+          });
+        } catch (err) {
+          console.error('Failed to update cumulative guest count:', err);
+        }
+      }
+
       // Send data using FormSubmit.co
       const formBody = new FormData();
       formBody.append('Name', formData.name);
-      formBody.append('Will Attend', formData.attend === 'yes' ? 'Yes' : formData.attend === 'no' ? 'No' : 'Not specified');
+      formBody.append('Will Attend', isAttending ? 'Yes' : formData.attend === 'no' ? 'No' : 'Not specified');
       formBody.append('Attending Events', formData.events || 'Not specified');
-      formBody.append('Number of Guests', formData.guests);
+      formBody.append('Number of Guests in this RSVP', guestCount);
+      formBody.append('Total Guests Attending (Cumulative)', newTotal);
       formBody.append('Contact Info', formData.contact || 'Not provided');
       formBody.append('Wishes for Couple', formData.wishes || 'No wishes');
       formBody.append('_subject', 'RSVP from ' + formData.name + ' - Neha & Dhaval Wedding');
@@ -332,7 +367,7 @@ function initImageHandlers() {
   });
 
   // Logo fallback
-  const logos = $$('.wedding-logo, .footer-logo');
+  const logos = $$('.wedding-logo, .footer-logo, .landing-logo');
   logos.forEach((logo) => {
     logo.addEventListener('error', () => {
       logo.classList.add('img-error');

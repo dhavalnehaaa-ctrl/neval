@@ -281,8 +281,26 @@ textarea {
   background: rgba(60, 10, 10, 0.85);
   backdrop-filter: blur(10px);
   border-radius: 2px;
-  padding: 50px 30px 45px;
+  padding: 40px 24px 35px;
   text-align: center;
+}
+
+.landing-logo-wrap {
+  margin-bottom: 15px;
+  animation: fadeInDown 1s 0.1s both;
+}
+
+.landing-logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(15deg) brightness(0.9);
+  opacity: 0.9;
+}
+
+.landing-logo.img-error {
+  display: none !important;
 }
 
 .you-are-invited {
@@ -299,7 +317,7 @@ textarea {
   font-weight: 700;
   color: #fff;
   line-height: 1.15;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
   animation: fadeInUp 1s 0.6s both;
 }
 
@@ -312,9 +330,31 @@ textarea {
   margin: 0 8px;
 }
 
+.landing-details {
+  margin-bottom: 24px;
+  animation: fadeInUp 1s 0.8s both;
+}
+
+.landing-date {
+  font-family: var(--ff-formal);
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.landing-venue {
+  font-family: var(--ff-body);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  color: #fff;
+  opacity: 0.75;
+  text-transform: uppercase;
+}
+
 .open-btn {
   display: inline-block;
-  padding: 18px 50px;
+  padding: 16px 45px;
   border: 2px solid var(--gold);
   color: var(--gold);
   font-family: var(--ff-formal);
@@ -322,7 +362,7 @@ textarea {
   letter-spacing: 4px;
   line-height: 1.6;
   transition: all 0.4s var(--ease);
-  animation: fadeInUp 1s 0.9s both;
+  animation: fadeInUp 1s 1.0s both;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -467,8 +507,8 @@ textarea {
 }
 
 .wedding-logo {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   margin: 0 auto;
   object-fit: contain;
   filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(15deg) brightness(0.9);
@@ -1084,8 +1124,8 @@ textarea {
 
 .field input:focus~label,
 .field input:not(:placeholder-shown)~label,
-.field textarea:focus~label,,
-.field select:focus~label
+.field textarea:focus~label,
+.field select:focus~label,
 .field textarea:not(:placeholder-shown)~label {
   top: -8px;
   font-size: 0.75rem;
